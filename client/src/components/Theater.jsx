@@ -156,7 +156,7 @@ const Theater = ({ theaterId, movies, selectedDate, filterMovie, setSelectedDate
 					{theater.number}
 				</h3>
 				{auth.role === 'admin' && (
-					<div className="flex w-fit flex-col gap-x-3 rounded-tr-2xl bg-gradient-to-br from-indigo-800 to-blue-700 px-4 py-0.5 font-semibold text-white md:flex-row md:gap-x-6 md:rounded-t-2xl md:text-lg md:font-bold">
+					<div className="flex w-fit flex-col gap-x-3 rounded-tr-2xl bg-[#FFCC00] px-4 py-0.5 font-semibold text-black md:flex-row md:gap-x-6 md:rounded-t-2xl md:text-lg md:font-bold">
 						<div className="flex items-center gap-2">
 							<ArrowsUpDownIcon className="h-5 w-5" />
 							{theater?.seatPlan?.row === 'A' ? (
