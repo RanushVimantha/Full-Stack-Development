@@ -274,13 +274,13 @@ const Theater = ({ theaterId, movies, selectedDate, filterMovie, setSelectedDate
 										</label>
 									</div>
 									<div
-										className="flex items-center gap-x-2 gap-y-1 lg:flex-col lg:items-start"
+										className="flex items-center gap-x-2 gap-y-1 lg:flex-col lg:items-start "
 										title="Gap between showtimes"
 									>
 										<label className="whitespace-nowrap font-semibold leading-5">Gap:</label>
 										<input
 											type="time"
-											className="h-9 w-full rounded bg-white px-2 py-1 font-semibold text-gray-900 drop-shadow-sm disabled:bg-gray-300"
+											className="h-9 w-full rounded bg-[#FFCC00] px-2 py-1 font-semibold text-gray-900 drop-shadow-sm disabled:bg-gray-300"
 											disabled={!watch('autoIncrease')}
 											{...register('gap')}
 										/>
@@ -288,13 +288,13 @@ const Theater = ({ theaterId, movies, selectedDate, filterMovie, setSelectedDate
 									<div className="flex flex-col items-start gap-2 lg:flex-row lg:items-end">
 										<p className="font-semibold text-right underline">Rounding</p>
 										<label
-											className="flex items-center gap-x-2 gap-y-1 whitespace-nowrap font-semibold leading-5 lg:flex-col lg:items-start"
+											className="flex items-center  gap-x-2 gap-y-1 whitespace-nowrap font-semibold leading-5 lg:flex-col lg:items-start"
 											title="Rounding up to the nearest five minutes"
 										>
 											5-min:
 											<input
 												type="checkbox"
-												className="h-6 w-6 lg:h-9 lg:w-9"
+												className="h-6 w-6 lg:h-9 lg:w-9 "
 												disabled={!watch('autoIncrease')}
 												{...register('rounding5', {
 													onChange: () => setValue('rounding10', false)
@@ -321,7 +321,7 @@ const Theater = ({ theaterId, movies, selectedDate, filterMovie, setSelectedDate
 							<button
 								title="Add showtime"
 								disabled={isAddingShowtime}
-								className="whitespace-nowrap rounded-md bg-gradient-to-r from-indigo-600 to-blue-500 px-2 py-1 font-medium text-white drop-shadow-md hover:from-indigo-500 hover:to-blue-400 disabled:from-slate-500 disabled:to-slate-400"
+								className="whitespace-nowrap rounded-md bg-[#FFCC00] px-2 py-1 font-medium text-black drop-shadow-md hover:from-indigo-500 hover:to-blue-400 disabled:from-slate-500 disabled:to-slate-400"
 								type="submit"
 							>
 								ADD +
