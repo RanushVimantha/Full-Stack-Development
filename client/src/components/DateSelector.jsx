@@ -49,21 +49,21 @@ const DateSelector = ({ selectedDate, setSelectedDate }) => {
 		return (
 			<button
 				title={formatDate(date)}
-				className={`flex min-w-[48px] flex-col items-center justify-center rounded p-1 font-semibold ${
+				className={`flex min-w-[40px] flex-col items-center justify-center rounded p-1 font-semibold text-sm ${
 					isThisDate
 						? 'bg-[#FFCC00] text-white'
 						: isToday
-						? 'bg-gradient-to-br from-indigo-100 to-white ring-2 ring-inset ring-indigo-800 hover:from-white hover:to-white'
+						? 'bg-gradient-to-br from-indigo-100 to-white ring-2 ring-inset ring-indigo-800'
 						: isPast(date)
-						? 'bg-gradient-to-br from-gray-600 to-gray-500 text-white hover:from-gray-500 hover:to-gray-400'
-						: 'bg-gradient-to-br from-indigo-100 to-white hover:from-white hover:to-white'
+						? 'bg-gradient-to-br from-gray-600 to-gray-500 text-white'
+						: 'bg-gradient-to-br from-indigo-100 to-white'
 				}`}
 				onClick={() => {
 					setSelectedDate(date)
 					sessionStorage.setItem('selectedDate', date)
 				}}
 			>
-				<p className="text-sm">{weekday}</p>
+				<p>{weekday}</p>
 				<p className="text-xl">{day}</p>
 			</button>
 		)
@@ -117,39 +117,36 @@ const DateSelector = ({ selectedDate, setSelectedDate }) => {
 
 	return (
 		<div className="flex flex-col gap-2">
-			<div className="relative flex items-stretch justify-between gap-2 rounded-md bg-[#9A9A9A] p-2 font-semibold text-white">
+			<div className="relative flex items-stretch justify-between gap-2 rounded-md bg-[#9A9A9A] p-2 text-white">
 				{auth.role === 'admin' || !isPast(new Date().setDate(selectedDate.getDate() - 1)) ? (
 					<button
 						title="Go to yesterday"
-						className={'rounded hover:bg-[#9A9A9A] hover:bg-[#5E5E5E]'}
+						className="rounded hover:bg-[#5E5E5E] p-2"
 						onClick={handlePrevDay}
 					>
-						<ChevronLeftIcon className="h-10 w-10 text-white" />
+						<ChevronLeftIcon className="h-6 w-6 text-white" />
 					</button>
 				) : (
-					<div className="h-10 w-10"></div>
+					<div className="h-6 w-6"></div>
 				)}
 
 				{isEditing ? (
 					<div className="w-full" ref={wrapperRef}>
 						<input
 							title="Select date"
-							type="Date"
+							type="date"
 							min={auth.role !== 'admin' && new Date().toLocaleDateString('en-CA')}
 							required
 							autoFocus
-							className={`w-full rounded border border-white bg-[#5E5E5E] px-1 text-center text-2xl font-semibold drop-shadow-sm sm:text-3xl`}
+							className="w-full rounded text-center bg-[#5E5E5E] p-2 text-lg"
 							value={selectedDate.toLocaleDateString('en-CA')}
 							onChange={handleChange}
-							style={{ colorScheme: 'dark' }}
 						/>
 					</div>
 				) : (
 					<div
-						className="flex w-full items-center justify-center rounded text-center text-xl hover:bg-[#9A9A9A] hover:bg-[#5E5E5E] sm:text-2xl"
-						onClick={() => {
-							SetIsEditing(true)
-						}}
+						className="flex w-full items-center justify-center rounded text-center text-sm cursor-pointer"
+						onClick={() => SetIsEditing(true)}
 					>
 						{formatDate(selectedDate)}
 					</div>
@@ -158,17 +155,17 @@ const DateSelector = ({ selectedDate, setSelectedDate }) => {
 				<div className="flex items-center justify-between gap-2">
 					<button
 						title="Go to tomorrow"
-						className="rounded hover:bg-[#9A9A9A] hover:bg-[#5E5E5E]"
+						className="rounded hover:bg-[#5E5E5E] p-2"
 						onClick={handleNextDay}
 					>
-						<ChevronRightIcon className="h-10 w-10 text-white" />
+						<ChevronRightIcon className="h-6 w-6 text-white" />
 					</button>
 					<button
 						title="Go to today"
-						className="rounded px-1 hover:bg-gradient-to-br hover:from-indigo-600 hover:to-blue-600"
+						className="rounded p-2 hover:bg-[#5E5E5E]"
 						onClick={handleToday}
 					>
-						<ArrowPathIcon className="h-10 w-10 text-white" />
+						<ArrowPathIcon className="h-6 w-6 text-white" />
 					</button>
 				</div>
 			</div>
@@ -177,6 +174,8 @@ const DateSelector = ({ selectedDate, setSelectedDate }) => {
 					<DateShort key={index} date={date} selectedDate={selectedDate} />
 				))}
 			</div>
+			{/* Show Time Button */}
+			
 		</div>
 	)
 }
