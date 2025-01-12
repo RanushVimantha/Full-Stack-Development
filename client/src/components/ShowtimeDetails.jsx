@@ -128,7 +128,7 @@ const ShowtimeDetails = ({ showDeleteBtn, showtime, fetchShowtime }) => {
 					{!showtime.isRelease && (
 						<button
 							title="Edit cinema name"
-							className="flex w-fit items-center gap-1 rounded-md bg-gradient-to-r from-indigo-600 to-blue-500  py-1 pl-2 pr-1.5 text-sm font-medium text-white hover:from-indigo-500 hover:to-blue-400 disabled:from-slate-500 disabled:to-slate-400"
+							className="flex w-fit items-center gap-1 rounded-md bg-[#FFCC00]  py-1 pl-2 pr-1.5 text-sm font-medium text-black hover:from-indigo-500 hover:to-blue-400 disabled:from-slate-500 disabled:to-slate-400"
 							onClick={() => handleReleaseShowtime(true)}
 							disabled={isReleasingShowtime}
 						>
@@ -145,7 +145,7 @@ const ShowtimeDetails = ({ showDeleteBtn, showtime, fetchShowtime }) => {
 					{showtime.isRelease && (
 						<button
 							title="Edit cinema name"
-							className="flex w-fit items-center gap-1 rounded-md bg-gradient-to-r from-indigo-600 to-blue-500  py-1 pl-2 pr-1.5 text-sm font-medium text-white hover:from-indigo-500 hover:to-blue-400 disabled:from-slate-500 disabled:to-slate-400"
+							className="flex w-fit items-center gap-1 rounded-md bg-[#FFCC00]  py-1 pl-2 pr-1.5 text-sm font-medium text-black hover:from-indigo-500 hover:to-blue-400 disabled:from-slate-500 disabled:to-slate-400"
 							onClick={() => handleUnreleasedShowtime(true)}
 							disabled={isUnreleasingShowtime}
 						>
