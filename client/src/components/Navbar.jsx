@@ -1,13 +1,3 @@
-import {
-	ClockIcon,
-	FilmIcon,
-	HomeModernIcon,
-	MagnifyingGlassIcon,
-	TicketIcon,
-	UsersIcon,
-	VideoCameraIcon
-} from '@heroicons/react/24/outline'
-import { Bars3Icon } from '@heroicons/react/24/solid'
 import axios from 'axios'
 import { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
@@ -28,22 +18,21 @@ const Navbar = () => {
 	const onLogout = async () => {
 		try {
 			SetLoggingOut(true)
-			const response = await axios.get('/auth/logout')
-			// console.log(response)
+			await axios.get('/auth/logout')
 			setAuth({ username: null, email: null, role: null, token: null })
 			sessionStorage.clear()
 			navigate('/')
 			toast.success('Logout successful!', {
 				position: 'top-center',
 				autoClose: 2000,
-				pauseOnHover: false
+				pauseOnHover: false,
 			})
 		} catch (error) {
 			console.error(error)
 			toast.error('Error', {
 				position: 'top-center',
 				autoClose: 2000,
-				pauseOnHover: false
+				pauseOnHover: false,
 			})
 		} finally {
 			SetLoggingOut(false)
@@ -52,119 +41,117 @@ const Navbar = () => {
 
 	const menuLists = () => {
 		return (
-			<>
-				<div className="flex flex-col gap-2 lg:flex-row">
+			<div className="flex flex-col items-center gap-4 lg:flex-row lg:justify-center">
+				<Link
+					to={'/cinema'}
+					className={`px-4 py-2 font-bold text-white hover:text-[#FFCC00] transition-all ${
+						window.location.pathname === '/cinema' ? 'text-[#FFCC00]' : ''
+					}`}
+				>
+					Cinema
+				</Link>
+				<Link
+					to={'/schedule'}
+					className={`px-4 py-2 font-bold text-white hover:text-[#FFCC00] transition-all ${
+						window.location.pathname === '/schedule' ? 'text-[#FFCC00]' : ''
+					}`}
+				>
+					Schedule
+				</Link>
+				{auth.role && (
 					<Link
-						to={'/cinema'}
-						className={`flex items-center justify-center gap-2 rounded-md px-2 py-1 text-white hover:bg-gray-500 ${
-							window.location.pathname === '/cinema'
-								? 'bg-gradient-to-br from-indigo-800 to-blue-700'
-								: 'bg-gray-600'
+						to={'/ticket'}
+						className={`px-4 py-2 font-bold text-white hover:text-[#FFCC00] transition-all ${
+							window.location.pathname === '/ticket' ? 'text-[#FFCC00]' : ''
 						}`}
 					>
-						<HomeModernIcon className="h-6 w-6" />
-						<p>Cinema</p>
+						Ticket
 					</Link>
-					<Link
-						to={'/schedule'}
-						className={`flex items-center justify-center gap-2 rounded-md px-2 py-1 text-white hover:bg-gray-500 ${
-							window.location.pathname === '/schedule'
-								? 'bg-gradient-to-br from-indigo-800 to-blue-700'
-								: 'bg-gray-600'
-						}`}
-					>
-						<ClockIcon className="h-6 w-6" />
-						<p>Schedule</p>
-					</Link>
-					{auth.role && (
+				)}
+				{auth.role === 'admin' && (
+					<>
 						<Link
-							to={'/ticket'}
-							className={`flex items-center justify-center gap-2 rounded-md px-2 py-1 text-white hover:bg-gray-500 ${
-								window.location.pathname === '/ticket'
-									? 'bg-gradient-to-br from-indigo-800 to-blue-700'
-									: 'bg-gray-600'
+							to={'/movie'}
+							className={`px-4 py-2 font-bold text-white hover:text-[#FFCC00] transition-all ${
+								window.location.pathname === '/movie' ? 'text-[#FFCC00]' : ''
 							}`}
 						>
-							<TicketIcon className="h-6 w-6" />
-							<p>Ticket</p>
+							Movie
 						</Link>
-					)}
-					{auth.role === 'admin' && (
-						<>
-							<Link
-								to={'/movie'}
-								className={`flex items-center justify-center gap-2 rounded-md px-2 py-1 text-white hover:bg-gray-500 ${
-									window.location.pathname === '/movie'
-										? 'bg-gradient-to-br from-indigo-800 to-blue-700'
-										: 'bg-gray-600'
-								}`}
-							>
-								<VideoCameraIcon className="h-6 w-6" />
-								<p>Movie</p>
-							</Link>
-							<Link
-								to={'/search'}
-								className={`flex items-center justify-center gap-2 rounded-md px-2 py-1 text-white hover:bg-gray-500 ${
-									window.location.pathname === '/search'
-										? 'bg-gradient-to-br from-indigo-800 to-blue-700'
-										: 'bg-gray-600'
-								}`}
-							>
-								<MagnifyingGlassIcon className="h-6 w-6" />
-								<p>Search</p>
-							</Link>
-							<Link
-								to={'/user'}
-								className={`flex items-center justify-center gap-2 rounded-md px-2 py-1 text-white hover:bg-gray-500 ${
-									window.location.pathname === '/user'
-										? 'bg-gradient-to-br from-indigo-800 to-blue-700'
-										: 'bg-gray-600'
-								}`}
-							>
-								<UsersIcon className="h-6 w-6" />
-								<p>User</p>
-							</Link>
-						</>
-					)}
-				</div>
-				<div className="flex grow items-center justify-center gap-3 lg:justify-end">
-					{auth.username && (
-						<p className="text-md whitespace-nowrap leading-none text-white">Welcome {auth.username}!</p>
-					)}
-					{auth.token ? (
-						<button
-							className="rounded-lg bg-gradient-to-br from-indigo-600 to-blue-500 px-2 py-1 text-white drop-shadow-md hover:from-indigo-500 hover:to-blue-400 disabled:from-slate-500 disabled:to-slate-400"
-							onClick={() => onLogout()}
-							disabled={isLoggingOut}
+						<Link
+							to={'/user'}
+							className={`px-4 py-2 font-bold text-white hover:text-[#FFCC00] transition-all ${
+								window.location.pathname === '/user' ? 'text-[#FFCC00]' : ''
+							}`}
 						>
-							{isLoggingOut ? 'Processing...' : 'Logout'}
-						</button>
-					) : (
-						<button className="rounded-lg bg-gradient-to-br from-indigo-600 to-blue-500 px-2 py-1 text-white drop-shadow-md hover:from-indigo-500 hover:to-blue-400">
-							<Link to={'/login'}>Login</Link>
-						</button>
-					)}
-				</div>
-			</>
+							User
+						</Link>
+					</>
+				)}
+			</div>
 		)
 	}
 
 	return (
-		<nav className="flex flex-col items-center justify-between gap-2 bg-gray-900 px-4 py-3 drop-shadow-lg lg:flex-row lg:justify-start sm:px-8">
-			<div className="flex w-full flex-row justify-between lg:w-fit">
-				<button className="flex flex-row items-center gap-2" onClick={() => navigate('/')}>
-					<FilmIcon className="h-8 w-8 text-white" />
-					<h1 className="mr-2 text-xl text-white">Cinema</h1>
-				</button>
-				<button
-					className="flex h-8 w-8 items-center justify-center rounded hover:bg-gray-700 lg:hidden"
-					onClick={() => toggleMenu()}
+		<nav className="fixed top-0 left-0 w-full z-50 flex flex-col items-center justify-center gap-4 bg-black px-4 py-3 drop-shadow-lg lg:flex-row lg:justify-between sm:px-8">
+			<div
+				className="flex items-center gap-2 cursor-pointer"
+				onClick={() => navigate('/')}
+			>
+				<h1
+					className="font-bold text-[#FFCC00]"
+					style={{
+						fontFamily: 'Arial',
+						fontSize: '26px',
+					}}
 				>
-					<Bars3Icon className="h-6 w-6 text-white" />
-				</button>
+					Ceynema
+				</h1>
 			</div>
-			<div className="hidden grow justify-between gap-2 lg:flex">{menuLists()}</div>
-			{menuOpen && <div className="flex w-full grow flex-col gap-2 lg:hidden">{menuLists()}</div>}
+			<div className="flex flex-1 justify-center">{menuLists()}</div>
+			<div className="hidden lg:flex items-center gap-4">
+				{auth.username && (
+					<p
+						className="text-md leading-none font-bold text-white"
+						style={{ fontFamily: 'Arial' }}
+					>
+						Welcome {auth.username}!
+					</p>
+				)}
+				{auth.token ? (
+					<button
+						className="rounded-lg px-4 py-2 font-bold transition-all hover:bg-[#E6B800] disabled:bg-gray-500"
+						style={{
+							fontFamily: 'Arial',
+							backgroundColor: '#FFCC00',
+							color: 'black',
+						}}
+						onClick={() => onLogout()}
+						disabled={isLoggingOut}
+					>
+						{isLoggingOut ? 'Processing...' : 'Logout'}
+					</button>
+				) : (
+					<Link
+						to={'/login'}
+						className="rounded-lg px-4 py-2 font-bold transition-all hover:bg-[#E6B800]"
+						style={{
+							fontFamily: 'Arial',
+							backgroundColor: '#FFCC00',
+							color: 'black',
+						}}
+					>
+						Login
+					</Link>
+				)}
+			</div>
+			{menuOpen && <div className="flex w-full flex-col gap-2 lg:hidden">{menuLists()}</div>}
+			<button
+				className="lg:hidden text-white"
+				onClick={() => toggleMenu()}
+			>
+				Menu
+			</button>
 		</nav>
 	)
 }
