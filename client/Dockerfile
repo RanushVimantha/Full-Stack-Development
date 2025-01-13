@@ -1,10 +1,11 @@
 # Base image for client
 FROM node:alpine
 
-WORKDIR /app/client
+WORKDIR /app
 
 # Install client dependencies
 COPY ./package.json .
+COPY ./package-lock.json .
 RUN npm install
 
 # Copy client source code
@@ -14,4 +15,4 @@ COPY ./ .
 EXPOSE 8000
 
 # Set entry point
-CMD ["npm", "run", "dev"]s
+CMD ["npm", "run", "dev"]
