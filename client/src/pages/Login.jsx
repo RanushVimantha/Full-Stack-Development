@@ -48,10 +48,10 @@ const Login = () => {
 	}
 
 	return (
-		<div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-indigo-900 to-blue-500 py-12 px-4 sm:px-6 lg:px-8">
+		<div className="flex min-h-screen items-center justify-center bg-[#181818] py-12 px-4 sm:px-6 lg:px-8">
 			<div className="w-full max-w-md space-y-8 rounded-2xl bg-white p-4 shadow-xl">
 				<div>
-					<h2 className="mt-4 text-center text-4xl font-extrabold text-gray-900">Login</h2>
+					<h2 className="mt-4 text-center text-4xl font-extrabold text-[#9A9A9A]">Login</h2>
 				</div>
 				<form className="mt-8 space-y-4" onSubmit={handleSubmit(onSubmit)}>
 					<input
