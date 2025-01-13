@@ -254,12 +254,12 @@ const TheaterListsByCinema = ({ cinemas, selectedCinemaIndex, setSelectedCinemaI
 					</>
 				)}
 			</div>
-			<div className="flex flex-col gap-6 p-4 sm:p-6 overflow-y-auto">
+			<div className="flex flex-col gap-6 p-4 sm:p-6 overflow-y-auto bg-[#181818]">
 				<DateSelector selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
 				<form className="flex flex-col gap-4" onSubmit={handleSubmit(onIncreaseTheater)}>
-					<h2 className="text-3xl font-bold">Theaters</h2>
+					<h2 className="text-3xl font-bold text-white">Theaters</h2>
 					{auth.role === 'admin' && (
-						<div className="flex w-full flex-wrap justify-between gap-4 rounded-md bg-gradient-to-br from-indigo-100 to-white p-4">
+						<div className="flex w-full flex-wrap justify-between gap-4 rounded-md bg-[#9A9A9A] p-4">
 							<h3 className="flex items-center text-xl font-bold">Add Theater</h3>
 							<div className="flex grow flex-col gap-4 sm:justify-end md:flex-row">
 								<div className="flex flex-wrap justify-end gap-4">
