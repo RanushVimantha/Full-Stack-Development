@@ -19,7 +19,7 @@ const Seat = ({ seat, setSelectedSeats, selectable, isAvailable }) => {
 				setSelectedSeats((prev) => prev.filter((e) => e !== `${seat.row}${seat.number}`))
 			}}
 		>
-			<div className="flex h-6 w-6 items-center justify-center rounded bg-blue-500 drop-shadow-md">
+			<div className="flex h-6 w-6 items-center justify-center rounded bg-[#FFCC00] drop-shadow-md">
 				<CheckIcon className="h-5 w-5 stroke-[3] text-white" />
 			</div>
 		</button>
