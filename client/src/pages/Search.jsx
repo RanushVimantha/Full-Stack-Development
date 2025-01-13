@@ -311,10 +311,10 @@ const Search = () => {
 	const navigate = useNavigate()
 
 	return (
-		<div className="flex min-h-screen flex-col gap-4 bg-gradient-to-br from-indigo-900 to-blue-500 pb-8 text-gray-900 sm:gap-8">
+		<div className="flex min-h-screen flex-col gap-4 bg-[#181818] pb-8 text-gray-900 sm:gap-8">
 			<Navbar />
-			<div className="mx-4 flex h-fit flex-col gap-2 rounded-lg bg-gradient-to-br from-indigo-200 to-blue-100 p-4 drop-shadow-xl sm:mx-8 sm:p-6">
-				<h2 className="text-3xl font-bold text-gray-900">Search Showtimes</h2>
+			<div className="mx-4 flex h-fit flex-col gap-2 rounded-lg bg-[#181818] p-4 drop-shadow-xl sm:mx-8 sm:p-6">
+				<h2 className="text-3xl font-bold text-gray-900 text-white">Search Showtimes</h2>
 				<div className="flex flex-col gap-2 rounded-md bg-gradient-to-br from-indigo-100 to-white p-4 transition-all duration-500 ease-in-out">
 					<div className="flex items-center justify-between" onClick={() => setIsOpenFilter((prev) => !prev)}>
 						<div className="flex items-center gap-2 text-2xl font-bold text-gray-900">
@@ -647,8 +647,8 @@ const Search = () => {
 					)}
 				</div>
 				<div className="flex items-end">
-					<ArrowDownIcon className="h-8 min-h-[32px] w-8 min-w-[32px] px-1" />
-					<div className="flex flex-wrap items-center gap-2 px-1">
+					<ArrowDownIcon className="h-8 min-h-[32px] w-8 min-w-[32px] px-1 bg-white" />
+					<div className="flex flex-wrap items-center gap-2 px-1 ">
 						<button
 							className="flex w-fit items-center justify-center gap-1 rounded bg-gradient-to-r from-indigo-600 to-blue-500 py-1 pl-2 pr-1.5 text-sm font-medium text-white hover:from-indigo-500 hover:to-blue-400 disabled:from-slate-500 disabled:to-slate-400 md:min-w-fit"
 							onClick={() => handleReleaseCheckedShowtimes()}
