@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react-swc';
 export default defineConfig({
 	plugins: [react()],
 	build: {
-		target: 'esnext',
-		outDir: 'dist'
+		outDir: 'dist', // Output directory for production build
 	},
+	base: './', // Ensures all assets are served with relative paths
 });
