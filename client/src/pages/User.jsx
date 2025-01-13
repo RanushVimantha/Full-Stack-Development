@@ -112,10 +112,10 @@ const User = () => {
 	}
 
 	return (
-		<div className="flex min-h-screen flex-col gap-4 bg-gradient-to-br from-indigo-900 to-blue-500 pb-8 text-gray-900 sm:gap-8">
+		<div className="flex min-h-screen flex-col gap-4 bg-[#181818] pb-8 text-gray-900 sm:gap-8">
 			<Navbar />
-			<div className="mx-4 flex h-fit flex-col gap-2 rounded-lg bg-gradient-to-br from-indigo-200 to-blue-100 p-4 drop-shadow-xl sm:mx-8 sm:p-6">
-				<h2 className="text-3xl font-bold text-gray-900">Users</h2>
+			<div className="mx-4 flex h-fit flex-col gap-2 rounded-lg bg-[#181818] p-4 drop-shadow-xl sm:mx-8 sm:p-6">
+				<h2 className="text-3xl font-bold text-gray-900 text-white">Users</h2>
 				<div className="relative drop-shadow-sm">
 					<div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
 						<MagnifyingGlassIcon className="h-5 w-5 stroke-2 text-gray-500" />
