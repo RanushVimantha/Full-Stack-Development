@@ -55,7 +55,7 @@ const Home = () => {
 			<div className="relative">
 				<img src="../src/assest/home.jpeg" alt="Cynema Banner" className="w-full h-[400px] object-cover" />
 				<div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white">
-					<h1 className="text-4xl font-bold">Welcome to Cynema</h1>
+					<h1 className="text-4xl font-bold">Welcome to Ceynema</h1>
 					<p className="mt-2 text-lg">The best way to watch movies...</p>
 				</div>
 			</div>
