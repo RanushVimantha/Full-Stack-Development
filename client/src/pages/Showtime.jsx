@@ -94,9 +94,9 @@ const Showtime = () => {
 	})
 
 	return (
-		<div className="flex min-h-screen flex-col gap-4 bg-gradient-to-br from-indigo-900 to-blue-500 pb-8 sm:gap-8">
+		<div className="flex min-h-screen flex-col gap-4 bg-[#181818] pb-8 sm:gap-8">
 			<Navbar />
-			<div className="mx-4 h-fit rounded-lg bg-gradient-to-br from-indigo-200 to-blue-100 p-4 drop-shadow-xl sm:mx-8 sm:p-6">
+			<div className="mx-4 h-fit rounded-lg bbg-[#181818] to-blue-100 p-4 drop-shadow-xl sm:mx-8 sm:p-6">
 				{showtime.showtime ? (
 					<>
 						<ShowtimeDetails showtime={showtime} showDeleteBtn={true} fetchShowtime={fetchShowtime} />
@@ -115,17 +115,17 @@ const Showtime = () => {
 										selectedSeats: sortedSelectedSeat,
 										showtime
 									}}
-									className="flex items-center justify-center gap-2 rounded-b-lg bg-gradient-to-br from-indigo-600 to-blue-500 px-4 py-1 font-semibold text-white hover:from-indigo-500 hover:to-blue-500 md:rounded-none md:rounded-br-lg"
+									className="flex items-center justify-center gap-2 rounded-b-lg bg-[#FFCC00] px-4 py-1 font-semibold text-black hover:from-indigo-500 hover:bg-[#FFCC00] md:rounded-none md:rounded-br-lg"
 								>
 									<p>Purchase</p>
-									<TicketIcon className="h-7 w-7 text-white" />
+									<TicketIcon className="h-7 w-7 text-black" />
 								</Link>
 							)}
 						</div>
 
 						<div className="mx-auto mt-4 flex flex-col items-center rounded-lg bg-gradient-to-br from-indigo-100 to-white p-4 text-center drop-shadow-lg">
 							<div className="w-full rounded-lg bg-white">
-								<div className="bg-gradient-to-r from-indigo-800 to-blue-700 bg-clip-text text-xl font-bold text-transparent">
+								<div className="bg-[#FFCC00] bg-clip-text text-xl font-bold text-transparent">
 									Screen
 								</div>
 							</div>
