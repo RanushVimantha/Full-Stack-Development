@@ -168,12 +168,12 @@ const Schedule = () => {
 			<CinemaLists {...props} />
 			{selectedCinemaIndex !== null &&
 				(cinemas[selectedCinemaIndex]?.theaters?.length ? (
-					<div className="mx-4 flex flex-col gap-2 rounded-lg bg-gradient-to-br from-indigo-200 to-blue-100 p-4 drop-shadow-xl sm:mx-8 sm:gap-4 sm:p-6">
-						<h2 className="text-3xl font-bold text-gray-900">Schedule</h2>
+					<div className="mx-4 flex flex-col gap-2 rounded-lg bg-[#181818] p-4 drop-shadow-xl sm:mx-8 sm:gap-4 sm:p-6">
+						<h2 className="text-3xl font-bold text-gray-900 text-white">Schedule</h2>
 						<DateSelector selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
 						{auth.role === 'admin' && (
 							<form
-								className="flex flex-col lg:flex-row gap-4 rounded-md bg-gradient-to-br from-indigo-100 to-white p-4"
+								className="flex flex-col lg:flex-row gap-4 rounded-md bg-[#9A9A9A] p-4 flex-grow"
 								onSubmit={handleSubmit(onAddShowtime)}
 							>
 								<div className="flex grow flex-col gap-2 rounded-lg">
@@ -327,14 +327,18 @@ const Schedule = () => {
 										</div>
 									</div>
 								</div>
-								<button
-									title="Add showtime"
-									disabled={isAddingShowtime}
-									className="whitespace-nowrap rounded-md bg-gradient-to-r from-indigo-600 to-blue-500 px-2 py-1 font-medium text-white drop-shadow-md hover:from-indigo-500 hover:to-blue-400 disabled:from-slate-500 disabled:to-slate-400"
-									type="submit"
-								>
-									ADD +
-								</button>
+	
+								{/* Move the button here */}
+								<div className="flex justify-center mt-4">
+									<button
+										title="Add showtime"
+										disabled={isAddingShowtime}
+										className="whitespace-nowrap rounded-md bg-[#FFCC00] px-2 py-1 font-medium text-black drop-shadow-md hover:from-indigo-500 hover:to-blue-400 disabled:from-slate-500 disabled:to-slate-400"
+										type="submit"
+									>
+										ADD +
+									</button>
+								</div>
 							</form>
 						)}
 						{isFetchingCinemas ? (
@@ -359,6 +363,8 @@ const Schedule = () => {
 				))}
 		</div>
 	)
+	
+	
 }
 
 export default Schedule
