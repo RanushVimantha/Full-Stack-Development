@@ -1,19 +1,19 @@
-# Base image for client
+# Base image for server
 FROM node:alpine
 
 WORKDIR /app/server
 
-# Install client dependencies
+# Install server dependencies
 COPY ./package.json .
 COPY ./package-lock.json .
-RUN npm install --legacy-peer-deps
+RUN npm install 
 
 
-# Copy client source code
+# Copy server source code
 COPY ./ .
 
 # Expose port
-EXPOSE 5000
+EXPOSE 3000
 
 # Set entry point
 CMD ["npm", "start"]
