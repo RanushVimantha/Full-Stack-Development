@@ -180,7 +180,7 @@ const ShowtimeDetails = ({ showDeleteBtn, showtime, fetchShowtime }) => {
 					<p className="text-sm">Theater</p>
 					<p className="text-3xl">{showtime?.theater?.number}</p>
 				</div>
-				<div className="flex w-fit grow items-center justify-center rounded-tr-lg bg-gradient-to-br from-indigo-800 to-blue-700 px-4 py-0.5 text-center text-xl font-bold text-white sm:text-3xl">
+				<div className="flex w-fit grow items-center justify-center rounded-tr-lg bg-[#FFCC00] px-4 py-0.5 text-center text-xl font-bold text-black sm:text-3xl">
 					<p className="mx-auto">{showtime?.theater?.cinema.name}</p>
 					{!showtime?.isRelease && <EyeSlashIcon className="h-8 w-8" title="Unreleased showtime" />}
 				</div>
@@ -190,11 +190,11 @@ const ShowtimeDetails = ({ showDeleteBtn, showtime, fetchShowtime }) => {
 					<div className="flex items-center">
 						<img src={showtime?.movie?.img} className="w-32 px-4 drop-shadow-md" />
 						<div className="flex flex-col">
-							<h4 className="mr-4 text-xl font-semibold sm:text-2xl md:text-3xl">
+							<h4 className="mr-4 text-xl text-black font-bold text-px-24">
 								{showtime?.movie?.name}
 							</h4>
 							{showtime?.movie && (
-								<p className="mr-4 font-medium sm:text-lg">
+								<p className="mr-4 font-medium text-black text-px-18 sm:text-lg">
 									length : {showtime?.movie?.length || '-'} min
 								</p>
 							)}
@@ -202,7 +202,7 @@ const ShowtimeDetails = ({ showDeleteBtn, showtime, fetchShowtime }) => {
 					</div>
 				</div>
 				<div className="flex flex-col">
-					<div className="flex h-full min-w-max flex-col items-center justify-center gap-y-1 bg-gradient-to-br from-indigo-100 to-white py-2 text-center text-xl font-semibold drop-shadow-lg sm:py-4 sm:text-2xl md:items-start">
+					<div className="flex h-full min-w-max flex-col items-center justify-center gap-y-1 text-black bg-gradient-to-br from-indigo-100 to-white py-2 text-center text-xl font-semibold drop-shadow-lg sm:py-4 sm:text-2xl md:items-start">
 						<p className="mx-4 text-lg leading-4 ">
 							{showtime?.showtime &&
 								`${new Date(showtime?.showtime).toLocaleString('default', { weekday: 'long' })}`}
@@ -213,7 +213,7 @@ const ShowtimeDetails = ({ showDeleteBtn, showtime, fetchShowtime }) => {
                					 ${new Date(showtime?.showtime).toLocaleString('default', { month: 'long' })}
                 				${new Date(showtime?.showtime).getFullYear()}`}
 						</p>
-						<p className="mx-4 bg-gradient-to-r from-indigo-800 to-blue-700 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl">
+						<p className="mx-4 text-4xl font-bold text-black sm:text-5xl">
 							{showtime?.showtime &&
 								`${new Date(showtime?.showtime).getHours().toString().padStart(2, '0')} : ${new Date(
 									showtime?.showtime
@@ -222,6 +222,7 @@ const ShowtimeDetails = ({ showDeleteBtn, showtime, fetchShowtime }) => {
 									.toString()
 									.padStart(2, '0')}`}
 						</p>
+
 					</div>
 				</div>
 			</div>
